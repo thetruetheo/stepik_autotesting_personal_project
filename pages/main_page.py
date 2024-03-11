@@ -12,6 +12,7 @@ class MainPage(BasePage):
         assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+        link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
         link.click()
-        #return LoginPage(browser=self.browser, url=self.browser.current_url)
+        alert = self.browser.switch_to.alert
+        alert.accept()
